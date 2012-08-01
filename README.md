@@ -11,41 +11,21 @@ Example
 -------
 
 ```
-DynFetcher = require '../lib/'
+DynFetcher = require 'dynfetcher'
 
-url = 'http://www.wunderground.com/weather-forecast/LJ/Maribor.html'
-dyn = new DynFetcher url
+dyn = new DynFetcher 'http://ifconfig.me/'
 
 itemData = 
-    day :
-        selector : '.titleSubtle'
+    ip :
+        selector : '#ip_address'
         required : on
-    min :
-        selector : '.foreSummary'
-        process  : (data) -> data.trim()
-        required : on
-    max :
-        selector : '.foreSummary > span',
 
-itemProcessFn = (item) ->
-    if item.min?
-        item.min = item.min.replace /\D+/g, ''
-        if item.min.length
-            item.min = parseInt item.min, 10
-        else
-            delete item.min
-
-    if item.max?
-        item.max = parseInt item.max, 10
-
-    item
-
-dyn.find 'div.foreGlance', itemData, itemProcessFn, (err, weather) ->
+dyn.find '#info_table', itemData, (err, info) ->
     if err
         console.error err
         return
 
-    console.log weather
+    console.log info[0]
 ```
 
 For latest updates visit [project's repository](https://github.com/matjaz/dynfetcher-node/).
