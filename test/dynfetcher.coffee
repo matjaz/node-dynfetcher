@@ -87,6 +87,19 @@ describe 'Validation', ->
             throw 'Should catch error' unless err.message.indexOf('undefinedVar') > -1
             done()
 
+    it 'should check property.process has one parameter', (done) ->
+        dyn   = getDyn()
+        items =
+            day :
+                selector : '.'
+                process  : ->
+
+        dyn.find '.titleSubtle', items, (err, res) ->
+            should.exist err
+            should.not.exist res
+            throw 'Should catch error' if err.message isnt 'day process wrong number of parameters.'
+            done()
+
     it 'should check item.process is a valid function reference', (done) ->
         dyn   = getDyn()
         items =
@@ -98,7 +111,7 @@ describe 'Validation', ->
             err.message.should.equal 'processItemFn parameter is not a valid function.'
             done()
     
-    it 'should check item.process is a valid function', (done) ->
+    it 'should check itemProcessFn is a valid function', (done) ->
         dyn   = getDyn()
         items =
             test :
@@ -108,7 +121,20 @@ describe 'Validation', ->
         dyn.find '.titleSubtle', items, itemProcessFn, (err, res) ->
             should.exist err
             should.not.exist res
-            throw 'Should catch error' unless err.message.indexOf('undefinedVar') > -1
+            throw 'Should catch error' if err.message.indexOf('undefinedVar') is -1
+            done()
+
+    it 'should check itemProcessFn has a correct number of parameters', (done) ->
+        dyn   = getDyn()
+        items =
+            test :
+                selector : '.'
+        itemProcessFn = ->
+
+        dyn.find '.titleSubtle', items, itemProcessFn, (err, res) ->
+            should.exist err
+            should.not.exist res
+            throw 'Should catch error' if err.message.indexOf('processItemFn must accept exactly one parameter.') is -1
             done()
 
 describe 'Processing', ->

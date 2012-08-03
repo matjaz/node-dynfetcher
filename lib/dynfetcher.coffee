@@ -43,12 +43,20 @@ class DynFetcher
             if key is '*' and not property.name?
                 callback new TypeError "Selector \"#{property.selector}\" must sprecify name."
                 return
-            if property.process? and typeof property.process isnt 'function'
-                callback new TypeError "#{key} process parameter is not a valid function."
-                return
+            if property.process?
+                if typeof property.process isnt 'function'
+                    callback new TypeError "#{key} process parameter is not a valid function."
+                    return
+                if property.process.length isnt 1
+                    callback new TypeError "#{key} process wrong number of parameters."
+                    return
 
-        if processItemFn? and typeof processItemFn isnt 'function'
+        if processItemFn?
+            if typeof processItemFn isnt 'function'
                 callback new TypeError 'processItemFn parameter is not a valid function.'
+                return
+            if processItemFn.length isnt 1
+                callback new TypeError 'processItemFn must accept exactly one parameter.'
                 return
 
         @fetch (errors, window) =>
