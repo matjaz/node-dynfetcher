@@ -1,5 +1,8 @@
-should     = require 'should'
-DynFetcher = require '../'
+should = require 'should'
+if process.env.DYNFETHCER_COV
+    DynFetcher = require '../lib-cov/dynfetcher'
+else
+    DynFetcher = require '../'
 
 getDyn = ->
     new DynFetcher "#{__dirname}/data/weather.html"

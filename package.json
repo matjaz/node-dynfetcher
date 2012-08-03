@@ -16,6 +16,7 @@
     "node": "0.6.x || 0.8.x"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha",
+    "test-cov": "rm -rf _compiled/ lib-cov/ && mkdir lib-cov _compiled && coffee -c -o _compiled/ lib && jscoverage _compiled/ lib-cov/ && DYNFETHCER_COV=1 node_modules/.bin/mocha --reporter html-cov > test/coverage.html"
   }
 }
