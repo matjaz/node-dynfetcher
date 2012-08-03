@@ -1,0 +1,4 @@
+/node_modules
+/_compiled
+/lib-cov
+/test/coverage.html
