@@ -17,6 +17,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha",
-    "test-cov": "rm -rf _compiled/ lib-cov/ && mkdir lib-cov _compiled && coffee -c -o _compiled/ lib && jscoverage _compiled/ lib-cov/ && DYNFETHCER_COV=1 node_modules/.bin/mocha --reporter html-cov > test/coverage.html"
+    "clean" : "rm -rf _compiled/ lib-cov/ test/coverage.html",
+    "test-cov": "npm run-script clean && mkdir lib-cov _compiled && coffee -c -o _compiled/ lib && jscoverage _compiled/ lib-cov/ && DYNFETHCER_COV=1 node_modules/.bin/mocha --reporter html-cov > test/coverage.html"
   }
 }
