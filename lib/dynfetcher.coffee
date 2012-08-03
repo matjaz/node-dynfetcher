@@ -17,8 +17,6 @@ class DynFetcher
         if nodeType
             if nodeType is 1 or nodeType is 9 or nodeType is 11
                 ret += node.nodeValue for node in elem.childNodes when node.nodeType is 3 or node.nodeType is 4
-            else if nodeType is 3 or nodeType is 4
-                return elem.nodeValue
         else
             ret += @getText node for node in elem when node.nodeType isnt 8
         ret
@@ -73,7 +71,6 @@ class DynFetcher
 
                 res = []
                 results.forEach (result) =>
-                    return if err?
                     item = {}
                     for name, p of properties
                         wild = off
