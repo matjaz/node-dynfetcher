@@ -1,7 +1,7 @@
-Dynfetcher-node
-===============
+Dynfetcher
+==========
 
-[![Build Status](https://secure.travis-ci.org/matjaz/dynfetcher-node.png?branch=master)](http://travis-ci.org/matjaz/dynfetcher-node)
+[![Build Status](https://secure.travis-ci.org/matjaz/node-dynfetcher.png?branch=master)](http://travis-ci.org/matjaz/node-dynfetcher)
 
 DynFetcher is a simple library for fetching parts of web pages using CSS selectors.
 
@@ -28,6 +28,6 @@ dyn.find '#info_table', itemData, (err, info) ->
     console.log info[0]
 ```
 
-For latest updates visit [project's repository](https://github.com/matjaz/dynfetcher-node/).
+For latest updates visit [project's repository](https://github.com/matjaz/node-dynfetcher/).
 
 Maybe you might find interesting [Yahoo! Query Language](http://developer.yahoo.com/yql/).
