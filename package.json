@@ -5,12 +5,12 @@
   "version": "0.2.0",
   "main": "lib/dynfetcher.js",
   "dependencies": {
-    "jsdom": "~0.2.15",
-    "coffee-script": "~1.3.3"
+    "jsdom": "~13.1.0",
+    "coffee-script": "~1.12.7"
   },
   "devDependencies": {
-    "mocha": "~1.3.0",
-    "should": "~1.1.0"
+    "mocha": "~5.2.0",
+    "should": "~13.2.3"
   },
   "engines": {
     "node": "0.6.x || 0.8.x"

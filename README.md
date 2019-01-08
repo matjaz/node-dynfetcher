@@ -1,7 +1,7 @@
 Dynfetcher
 ==========
 
-[![Build Status](https://secure.travis-ci.org/matjaz/node-dynfetcher.png?branch=master)](http://travis-ci.org/matjaz/node-dynfetcher)
+[![Build Status](https://secure.travis-ci.org/matjaz/node-dynfetcher.png?branch=master)](http://travis-ci.org/matjaz/node-dynfetcher) [![Greenkeeper badge](https://badges.greenkeeper.io/matjaz/node-dynfetcher.svg)](https://greenkeeper.io/)
 
 DynFetcher is a simple library for fetching parts of web pages using CSS selectors.
 
